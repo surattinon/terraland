@@ -25,7 +25,7 @@ module "hub_network" {
     "AzureFirewallSubnet" = {
         address_prefixes = ["10.0.0.0/26"] # 10.0.0.0 - 10.0.0.63
     }
-    "AzureBustionSubnet" = {
+    "AzureBastionSubnet" = {
         address_prefixes = ["10.0.0.64/26"] # 10.0.0.64 - 10.0.0.127
     }
     "GatewaySubnet" = {
