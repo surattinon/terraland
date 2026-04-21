@@ -1,0 +1,34 @@
+{
+  "name": "Azure Landing Zone Dev",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/terraform:1": {
+      "version": "latest",
+      "tflint": "latest",
+      "terragrunt": "none"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts",
+      "pnpmVersion": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.azurecli",
+        "hashicorp.terraform",
+        "ms-azuretools.vscode-azureterraform",
+        "vscodevim.vim"
+      ],
+      "settings": {
+        "editor.lineNumbers": "relative",
+        "vim.useSystemClipboard": true,
+        "vim.hlsearch": true
+      }
+    }
+  },
+  "remoteUser": "vscode"
+}
