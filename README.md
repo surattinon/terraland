@@ -13,7 +13,7 @@ terraform apply
 ```hcl
   backend "azurerm" {
     # ............
-    storage_account_name = "stterralandtfstatepp7u0" 
+    storage_account_name = "<generated blob storage name>" 
     # ............
   }
 ```
