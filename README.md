@@ -1,7 +1,7 @@
 # TerraLand
 TerraLand | A project for learning Azure Landing Zone with Terraform
 
-## Secret Terraform Variables Setup (for github action)
+## Secret ENV Variables Setup (for github action)
 1. Exec ```az accout show``` in terminal to get ```subscription_id``` and ```tenent_id```
 
 2. Use this command bellow to create a contributor.
@@ -11,4 +11,4 @@ TerraLand | A project for learning Azure Landing Zone with Terraform
 
 3. Copy JSON values from output and look for ```appId``` and ```password```
 
-4. Setup Github Secret for ```subscription_id``` ```tenent_id``` ```appId``` and ```password``` (will setup ENV varaible name later....)
+4. Setup Github Secret for ```subscription_id``` ```tenent_id``` ```appId``` and ```password``` (will setup ENV variable name later....)
