@@ -1,7 +1,24 @@
 # TerraLand
 TerraLand | A project for learning Azure Landing Zone with Terraform
 
-## Secret ENV Variables Setup (for github action)
+### Terraform state Azure Blob bootstrap
+1. Create Blob Storage for tfstate file
+```bash
+cd bootstrap/
+terraform init
+terraform plan
+terraform apply
+```
+2. Copy storage name from output and paste in `environment/sandbox/providers.tf`
+```hcl
+  backend "azurerm" {
+    # ............
+    storage_account_name = "stterralandtfstatepp7u0" 
+    # ............
+  }
+```
+
+### Secret ENV Variables Setup (for github action)
 1. Exec `az accout show` in terminal to get `subscription_id` and `tenent_id`
 
 2. Use this command bellow to create a new service principle with `Contributor` Role.
