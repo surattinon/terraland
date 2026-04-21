@@ -9,7 +9,7 @@ terraform init
 terraform plan
 terraform apply
 ```
-2. Copy storage account name from output and paste in `environment/sandbox/providers.tf`
+2. Copy value of `tfstate_storage_name` from output and paste in `environment/sandbox/providers.tf`
 ```hcl
   backend "azurerm" {
     # ............
