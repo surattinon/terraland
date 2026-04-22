@@ -33,3 +33,17 @@ module "hub_network" {
     }
   }
 }
+
+# Vendor Network Spoke Module
+module "vendor_spoke" {
+  source = "../../modules/network-spoke"
+
+  location = azurerm_resource_group.sandbox_rg.location
+  resource_group_name = azurerm_resource_group.sandbox_rg.name
+
+  vnet_name = "vnet-spoke-vendor-001"
+  address_space = [ "10.0.1.0/24" ]
+
+  hub_vnet_id = module.hub_network.vnet_id
+  hub_vnet_name = module.hub_network.vnet_name
+}
