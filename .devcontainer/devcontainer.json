@@ -13,7 +13,12 @@
     "ghcr.io/devcontainers/features/node:1": {
       "version": "lts",
       "pnpmVersion": "latest"
-    }
+    },
+    "ghcr.io/devcontainers/features/common-utils:1": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true
+    },
+    "ghcr.io/schlich/devcontainer-features/powerlevel10k:latest": {}
   },
   "customizations": {
     "vscode": {
@@ -24,11 +29,13 @@
         "vscodevim.vim"
       ],
       "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.fontFamily": "'MesloLGS NF'",
         "editor.lineNumbers": "relative",
         "vim.useSystemClipboard": true,
         "vim.hlsearch": true
       }
     }
   },
-  "remoteUser": "vscode"
+  "postCreateCommand": "sh .devcontainer/setup-p10k.sh"
 }
