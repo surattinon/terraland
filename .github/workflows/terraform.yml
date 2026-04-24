@@ -22,16 +22,16 @@ jobs:
     
     steps:
     - name: Checkout Code
-      uses: action/checkout@v4
+      uses: action/checkout@v6
 
     - name: Terraform Setup
       uses: hashicorp/setup-terraform@v4
 
     - name: Terraform Init
-      uses: terraform init
+      runs: terraform init
 
     - name: Terraform Plan
-      uses: terraform plan -out=tfplan
+      runs: terraform plan -out=tfplan
 
     - name: Terraform Apply
-      uses: terraform apply -auto-approve tfplan
+      runs: terraform apply -auto-approve tfplan
