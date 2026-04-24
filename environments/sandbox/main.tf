@@ -24,13 +24,13 @@ module "hub_network" {
 
   subnets = {
     "AzureFirewallSubnet" = {
-      address_prefixes = ["10.0.0.0/26"] # 10.0.0.0 - 10.0.0.63
+      address_prefixes = ["10.0.0.0/26"] # 10.0.0.0 - 10.0.0.63 (64 IPs)
     }
     "AzureBastionSubnet" = {
-      address_prefixes = ["10.0.0.64/26"] # 10.0.0.64 - 10.0.0.127
+      address_prefixes = ["10.0.0.64/26"] # 10.0.0.64 - 10.0.0.127 (64 IPs)
     }
     "GatewaySubnet" = {
-      address_prefixes = ["10.0.0.128/27"] # 10.0.0.128 - 10.0.0.159
+      address_prefixes = ["10.0.0.128/27"] # 10.0.0.128 - 10.0.0.159 (32 IPs)
     }
   }
 
