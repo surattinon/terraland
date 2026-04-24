@@ -1,8 +1,8 @@
 variable "location" {
   description = "The AZ Region for sandbox environment."
-  default     = "eastasia"
+  default     = "southeastasia"
 }
-variable "location_short" { default = "ea" }
+variable "location_short" { default = "sea" }
 
 # Resource Group
 resource "azurerm_resource_group" "sandbox_rg" {
