@@ -1,0 +1,37 @@
+name: 'Terraform ALZ Sandbox Pipeline'
+on:
+  push:
+    brances: ["main"]
+  workflow_dispatch:
+
+env:
+  ARM_SUBSCRIPTION_ID: ${{secrets.ARM_SUBSCRIPTION_ID}}
+  ARM_CLIENT_ID: ${{secrets.ARM_CLIENT_ID}}
+  ARM_CLIENT_SECRET: ${{secrets.ARM_CLIENT_SECRET}}
+  ARM_TENANT_ID: ${{secrets.ARM_TENANT_ID}}
+  WORKDIR: 'environments/sandbox'
+
+jobs:
+  terraform:
+    name: 'Deploy Infrastructure'
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ${{env.WORKDIR}}
+    
+    steps:
+    - name: Checkout Code
+      uses: action/checkout@v6
+
+    - name: Terraform Setup
+      uses: hashicorp/setup-terraform@v4
+
+    - name: Terraform Init
+      uses: terraform init
+
+    - name: Terraform Plan
+      uses: terraform plan -out=tfplan
+
+    - name: Terraform Apply
+      uses: terrform apply -auto-approve tfplan
