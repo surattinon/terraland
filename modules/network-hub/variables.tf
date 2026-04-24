@@ -5,7 +5,7 @@ variable "resource_group_name" { type = string }
 variable "vnet_config" {
   description = "Configuration object for the Hub VNet"
   type = object({
-    name = string
+    name          = string
     address_space = list(string)
   })
 }

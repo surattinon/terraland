@@ -6,10 +6,10 @@ variable "address_space" { type = list(string) }
 # Bridge Variables
 variable "hub_vnet_id" {
   description = "The ID of the VNet Hub for peering"
-  type = string
+  type        = string
 }
 
 variable "hub_vnet_name" {
   description = "The name of the VNet Hub for peering"
-  type = string
+  type        = string
 }
