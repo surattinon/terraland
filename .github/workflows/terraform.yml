@@ -28,10 +28,10 @@ jobs:
       uses: hashicorp/setup-terraform@v4
 
     - name: Terraform Init
-      runs: terraform init
+      run: terraform init
 
     - name: Terraform Plan
-      runs: terraform plan -out=tfplan
+      run: terraform plan -out=tfplan
 
     - name: Terraform Apply
-      runs: terraform apply -auto-approve tfplan
+      run: terraform apply -auto-approve tfplan
