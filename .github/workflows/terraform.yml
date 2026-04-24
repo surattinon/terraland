@@ -34,4 +34,4 @@ jobs:
       uses: terraform plan -out=tfplan
 
     - name: Terraform Apply
-      uses: terrform apply -auto-approve tfplan
+      uses: terraform apply -auto-approve tfplan
