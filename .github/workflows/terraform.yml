@@ -1,7 +1,5 @@
 name: 'Terraform ALZ Sandbox Pipeline'
 on:
-  push:
-    branches: ["main"]
   pull_request:
     branches: ["main"]
   workflow_dispatch:
