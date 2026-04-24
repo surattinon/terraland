@@ -28,4 +28,8 @@ terraform apply
 
 3. Copy JSON values from output and look for `appId` and `password`
 
-4. Setup Github Secret with `subscription_id` `tenent_id` `appId` and `password` (will setup ENV variable name later....)
+4. Setup Github Secret with `subscription_id` `tenent_id` `appId` and `password`
+- `ARM_SUBSCRIBTION_ID`: `subscription_id`
+- `ARM_TENANT_ID`: `tenent_id`
+- `ARM_CLIENT_ID`: `appId`  
+- `ARM_CLIENT_SECRET`: `password`
