@@ -2,7 +2,6 @@ name: 'Terraform ALZ Sandbox Pipeline'
 on:
   pull_request:
     branches: ["main"]
-  workflow_dispatch:
 
 env:
   ARM_SUBSCRIPTION_ID: ${{secrets.ARM_SUBSCRIPTION_ID}}
