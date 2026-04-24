@@ -2,10 +2,11 @@ variable "location" {
   description = "The AZ Region for sandbox environment."
   default     = "eastus"
 }
+variable "location_short" { default = "eus" }
 
 # Resource Group
 resource "azurerm_resource_group" "sandbox_rg" {
-  name     = "rg-terraland-sandbox"
+  name     = "rg-terraland-${var.location_short}-sandbox"
   location = var.location
 }
 
@@ -17,7 +18,7 @@ module "hub_network" {
   resource_group_name = azurerm_resource_group.sandbox_rg.name
 
   vnet_config = {
-    name          = "vnet-hub-sandbox-001"
+    name          = "vnet-hub-sandbox-${var.location_short}-001"
     address_space = ["10.0.0.0/24"]
   }
 
@@ -32,6 +33,8 @@ module "hub_network" {
       address_prefixes = ["10.0.0.128/27"] # 10.0.0.128 - 10.0.0.159
     }
   }
+
+  depends_on = [ azurerm_resource_group.sandbox_rg ]
 }
 
 # Vendor Network Spoke Module
@@ -41,11 +44,13 @@ module "vendor_spoke" {
   location            = azurerm_resource_group.sandbox_rg.location
   resource_group_name = azurerm_resource_group.sandbox_rg.name
 
-  vnet_name     = "vnet-spoke-vendor-001"
+  vnet_name     = "vnet-spoke-vendor-${var.location_short}-001"
   address_space = ["10.0.1.0/24"]
 
   hub_vnet_id   = module.hub_network.vnet_id
   hub_vnet_name = module.hub_network.vnet_name
+
+  depends_on = [ module.hub_network ]
 }
 
 # Policy: FinOps
@@ -57,4 +62,5 @@ module "finops_policy" {
     "Standard_B2ats_v2",
     "Standard_B2pts_v2"
   ]
+  depends_on = [ azurerm_resource_group.sandbox_rg ]
 }

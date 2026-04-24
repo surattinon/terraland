@@ -6,7 +6,6 @@ terraform {
     }
   }
 
-  # This is the connection to your new digital safe!
   backend "azurerm" {
     resource_group_name  = "rg-terraland-tfstate"
     storage_account_name = "stterralandtfstatepp7u0"
