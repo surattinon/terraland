@@ -1,5 +1,7 @@
 name: 'Terraform ALZ Sandbox Pipeline'
 on:
+  push:
+    branches: ["main"]
   pull_request:
     branches: ["main"]
 
@@ -55,7 +57,7 @@ jobs:
     needs: plan
 
     # Only run this job if the code was actually pushed/merged into the 'main' branch
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     defaults:
       run:
