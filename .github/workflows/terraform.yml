@@ -22,7 +22,7 @@ jobs:
     
     steps:
     - name: Checkout Code
-      uses: action/checkout@v6
+      uses: action/checkout@v4
 
     - name: Terraform Setup
       uses: hashicorp/setup-terraform@v4
